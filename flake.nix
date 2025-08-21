@@ -28,7 +28,6 @@
         types-psycopg2
       ]);
     dependencies = with pkgs; [
-      chromium
       dbeaver-bin
       postgresql
       sqlite
@@ -37,9 +36,6 @@
     # For `nix develop`
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = [pythonEnv] ++ dependencies;
-      shellHook = ''
-        export BROWSER=chromium  # Set browser path
-      '';
     };
   };
 }
