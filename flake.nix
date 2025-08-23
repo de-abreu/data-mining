@@ -25,6 +25,7 @@
         scikit-learn
         seaborn
         sqlalchemy
+        tqdm
         types-psycopg2
       ]);
     dependencies = with pkgs; [

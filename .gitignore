@@ -1,4 +1,5 @@
-*.csv
-*.xlsx
-*.zip
+.*
 .*/
+*.db
+*.csv
+__pycache__/
