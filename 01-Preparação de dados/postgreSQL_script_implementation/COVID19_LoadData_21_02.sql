@@ -42,22 +42,22 @@ BEGIN
     ALTER TABLE D2.Desfechos ADD COLUMN DE_Hospital TEXT;
 
 
-    COPY HSL.Pacientes FROM '/tmp/covid_data/HSL_Janeiro2021/HSL_Pacientes_3.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
-    COPY HSL.ExamLabs FROM '/tmp/covid_data/HSL_Janeiro2021/HSL_Exames_3.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
-    COPY HSL.Desfechos FROM '/tmp/covid_data/HSL_Janeiro2021/HSL_Desfechos_3.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY HSL.Pacientes FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/HSL/HSL_Pacientes.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY HSL.ExamLabs FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/HSL/HSL_Exames.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY HSL.Desfechos FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/HSL/HSL_Desfechos.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
 
-    COPY GRUPOFLEURY.Pacientes FROM '/tmp/covid_data/GrupoFleury_Janeiro2021/GrupoFleury_Pacientes_3.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
-    COPY GRUPOFLEURY.ExamLabs FROM '/tmp/covid_data/GrupoFleury_Janeiro2021/GrupoFleury_Exames_3.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY GRUPOFLEURY.Pacientes FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/GrupoFleury/GrupoFleury_Pacientes.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY GRUPOFLEURY.ExamLabs FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/GrupoFleury/GrupoFleury_Exames.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
         
-    COPY EINSTEIN.Pacientes FROM '/tmp/covid_data/EinsteinAgosto/EINSTEIN_Pacientes_2.csv' WITH (FORMAT csv, ENCODING 'UTF8', DELIMITER '|', HEADER);
-    COPY EINSTEIN.ExamLabs FROM '/tmp/covid_data/EinsteinAgosto/EINSTEIN_Exames_2.csv' WITH (FORMAT csv, ENCODING 'UTF8', DELIMITER '|', HEADER);
+    COPY EINSTEIN.Pacientes FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/EinsteinAgosto/EINSTEIN_Pacientes.csv' WITH (FORMAT csv, ENCODING 'UTF8', DELIMITER '|', HEADER);
+    COPY EINSTEIN.ExamLabs FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/EinsteinAgosto/EINSTEIN_Exames.csv' WITH (FORMAT csv, ENCODING 'UTF8', DELIMITER '|', HEADER);
 
-    COPY HC.Pacientes FROM '/tmp/covid_data/HC_Janeiro2021/HC_PACIENTES_1.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
-    COPY HC.ExamLabs FROM '/tmp/covid_data/HC_Janeiro2021/HC_EXAMES_1.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY HC.Pacientes FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/HC/HC_PACIENTES.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY HC.ExamLabs FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/HC/HC_EXAMES.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
         
-    COPY BPSP.Pacientes FROM '/tmp/covid_data/BPSP/bpsp_pacientes_01.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
-    COPY BPSP.ExamLabs FROM '/tmp/covid_data/BPSP/bpsp_exames_01.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
-    COPY BPSP.Desfechos FROM '/tmp/covid_data/BPSP/bpsp_desfecho_01.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY BPSP.Pacientes FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/BPSP/bpsp_pacientes_01.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY BPSP.ExamLabs FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/BPSP/bpsp_exames_01.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
+    COPY BPSP.Desfechos FROM '/home/user/Public/USP/Ciência da Computação/Semestre 6/Mineração de dados/01-Introdução-Preparação de dados/datasets/BPSP/bpsp_desfecho_01.csv' WITH (FORMAT csv, HEADER, ENCODING 'UTF8', DELIMITER '|');
 
 
     INSERT INTO D2.Pacientes SELECT *, 'HSL' as DE_Hospital FROM HSL.Pacientes;
