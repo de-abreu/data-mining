@@ -14,14 +14,15 @@
     pythonEnv = pkgs.python3.withPackages (ps:
       with ps; [
         ipywidgets
-        jupyter
         jupysql
+        jupyter
         lsprotocol
         matplotlib
         pandas
         pandas-stubs
         plotly
         psycopg2
+        pyqt6
         scikit-learn
         seaborn
         sqlalchemy
@@ -33,10 +34,21 @@
       postgresql
       sqlite
     ];
+
+    runScript = pkgs.writeShellApplication {
+      name = "launch-jupyter";
+      runtimeInputs = dependencies;
+      text = ''
+        jupyter notebook ${self} # Launch Jupyter
+      '';
+    };
   in {
     # For `nix develop`
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = [pythonEnv] ++ dependencies;
     };
+
+    # For `nix run`
+    packages.${system}.default = runScript;
   };
 }
