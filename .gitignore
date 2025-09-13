@@ -3,3 +3,4 @@
 *.db
 *.csv
 __pycache__/
+postgres_data
