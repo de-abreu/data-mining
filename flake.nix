@@ -22,7 +22,7 @@
         pandas-stubs
         plotly
         psycopg2
-        pyqt6
+        python-lsp-server
         scikit-learn
         seaborn
         sqlalchemy
