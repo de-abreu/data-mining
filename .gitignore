@@ -2,5 +2,6 @@
 .*/
 *.db
 *.csv
+*.json
 __pycache__/
 postgres_data
