@@ -24,6 +24,8 @@ services:
     volumes:
       - ./notebooks:/home/jovyan/work:rw
       - ./datasets:/datasets:ro
+    user: root
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
+      GRANT_SUDO: yes
