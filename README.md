@@ -33,3 +33,5 @@ padrão.
 4. [Tipos de dados Não-Atômicos](https://github.com/de-abreu/data-mining/blob/main/notebooks/04%20-%20Tipos%20de%20dados%20n%C3%A3o-at%C3%B4micos/Tipos%20de%20dados%20n%C3%A3o-at%C3%B4micos.ipynb)
 
 5. [JSON](https://github.com/de-abreu/data-mining/blob/main/notebooks/04%20-%20JSON/JSON_v2.ipynb)
+
+6. [Chave Valor](https://github.com/de-abreu/data-mining/blob/main/notebooks/06%20-%20Chave%20Valor/6.2-Exercicio.ipynb)
