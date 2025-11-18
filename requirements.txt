@@ -1,0 +1,16 @@
+ipywidgets
+jupysql
+jupyter
+lsprotocol
+matplotlib
+pandas
+pandas-stubs
+plotly
+psycopg2-binary
+python-lsp-server
+pyvis
+scikit-learn
+seaborn
+sqlalchemy
+tqdm
+types-psycopg2

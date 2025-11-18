@@ -1,0 +1,10 @@
+inputs:
+  devenv:
+    url: github:cachix/devenv
+  nix2containers:
+    url: github:nlewo/nix2container
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  nixpkgs:
+    url: github:cachix/devenv-nixpkgs/rolling
