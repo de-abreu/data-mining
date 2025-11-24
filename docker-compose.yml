@@ -5,6 +5,7 @@ services:
     volumes:
       - ./postgres_init:/docker-entrypoint-initdb.d:ro
       - ./postgres_data:/var/lib/postgresql/data:rw
+      - ./datasets:/datasets:ro
     ports:
       - "5434:5432"
     healthcheck:
@@ -22,6 +23,7 @@ services:
     volumes:
       - ./hydra_init:/docker-entrypoint-initdb.d:ro
       - ./hydra_data:/var/lib/postgresql/data:rw
+      - ./datasets:/datasets:ro
     ports:
       - "5433:5432"
     healthcheck:
@@ -42,6 +44,7 @@ services:
     volumes:
       - ./pgvector_init:/docker-entrypoint-initdb.d
       - ./pgvector_data:/var/lib/postgresql/data:rw
+      - ./datasets:/datasets:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
