@@ -34,6 +34,24 @@ services:
       POSTGRES_PASSWORD: "postgres"
 
 
+  pgvector:
+    image: pgvector/pgvector:0.8.1-pg17-trixie
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgvector_init:/docker-entrypoint-initdb.d
+      - ./pgvector_data:/var/lib/postgresql/data:rw
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 10s
+      retries: 6
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres"
+
   notebook:
     image: quay.io/jupyter/base-notebook:2025-09-08
     command: "start-notebook.py --NotebookApp.token=jupyter"
