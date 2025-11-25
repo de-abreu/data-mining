@@ -1,54 +1,28 @@
 {
-  description = "Data visualization development environment";
+  inputs = {
+    nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
+    devenv.url = "github:cachix/devenv";
+  };
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+  nixConfig = {
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+    extra-substituters = "https://devenv.cachix.org";
+  };
 
   outputs = {
     self,
     nixpkgs,
-  }: let
+    devenv,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-
-    # Custom Python environment
-    pythonEnv = pkgs.python3.withPackages (ps:
-      with ps; [
-        ipywidgets
-        jupysql
-        jupyter
-        lsprotocol
-        matplotlib
-        pandas
-        pandas-stubs
-        plotly
-        psycopg2
-        python-lsp-server
-        scikit-learn
-        seaborn
-        sqlalchemy
-        tqdm
-        types-psycopg2
-      ]);
-    dependencies = with pkgs; [
-      dbeaver-bin
-      postgresql
-      sqlite
-    ];
-
-    runScript = pkgs.writeShellApplication {
-      name = "launch-jupyter";
-      runtimeInputs = dependencies;
-      text = ''
-        jupyter notebook ${self} # Launch Jupyter
-      '';
-    };
   in {
-    # For `nix develop`
-    devShells.${system}.default = pkgs.mkShell {
-      buildInputs = [pythonEnv] ++ dependencies;
+    devShells.${system}.default = devenv.lib.mkShell {
+      inherit inputs pkgs;
+      modules = [
+        (import (self + "/devenv.nix"))
+      ];
     };
-
-    # For `nix run`
-    packages.${system}.default = runScript;
   };
 }

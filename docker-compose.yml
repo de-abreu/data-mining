@@ -35,6 +35,16 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
 
+  age:
+    image: apache/age:latest
+    restart: always
+    volumes:
+      - ./age_data:/var/lib/postgresql/data:rw
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
 
   pgvector:
     image: pgvector/pgvector:0.8.1-pg17-trixie
