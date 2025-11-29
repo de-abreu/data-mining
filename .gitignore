@@ -2,6 +2,7 @@
 .*/
 *.db
 *.csv
+*.tsv
 *.json
 __pycache__/
 *_data/
