@@ -1,10 +1,11 @@
+*.csv
+*.db
+*.json
+*.zip
+*_data/
 .*
 .*/
-*.db
-*.csv
-*.json
 __pycache__/
-*_data/
 
 # Devenv
 .devenv*

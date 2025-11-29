@@ -5,23 +5,16 @@ semestre de 2025.
 
 ## Dependências
 
-O nosso projeto faz uso do Jupyter Notebook para execução e apresentação das
-nossas análises. Este, dentre outras bibliotecas Python, podem ser obtidos por
-uma das seguintes formas:
-
-### Usando nix
-
-Tendo instalado o gerenciador de pacotes `nix` com
-[flakes habilitados](https://nixos.wiki/wiki/flakes), em seu terminal acesse a
-pasta raiz do projeto e execute:
+Para instalar as dependências deste projeto de forma isolada e temporária,
+utilize o seguinte comando a partir da raiz do projeto:
 
 ```bash
-nix run github:de-abreu/visualizacao_computacional
+devenv shell
 ```
 
-Para baixar todos os arquivos e instalar a todas as dependências do projeto em
-um ambiente isolado e lançar uma instância do Jupyter Notebook em seu navegador
-padrão.
+Para acessar um ambiente virtual com todas as dependências instaladas. A partir
+dai você pode acessar um um notebook jupyter com o comando `jupyter notebook` e
+acessar os notebooks descritos à seguir, todos encontrados na pasta `notebooks`.
 
 ## Notebooks
 
@@ -35,3 +28,7 @@ padrão.
 5. [JSON](https://github.com/de-abreu/data-mining/blob/main/notebooks/04%20-%20JSON/JSON_v2.ipynb)
 
 6. [Chave Valor](https://github.com/de-abreu/data-mining/blob/main/notebooks/06%20-%20Chave%20Valor/6.2-Exercicio.ipynb)
+7. [Armazenamento colunar](https://github.com/de-abreu/data-mining/blob/main/notebooks/07%20-%20Colunar/colunar.ipynb)
+8. [Database em grafo](https://github.com/de-abreu/data-mining/blob/main/notebooks/08%20-%20Grafos/Graph.ipynb)
+
+9. [Índices vetoriais](https://github.com/de-abreu/data-mining/blob/main/notebooks/09%20-%20Vetores/Exerc%C3%ADcio.ipynb)
