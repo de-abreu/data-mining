@@ -5,6 +5,10 @@
 *_data/
 .*
 .*/
+*.db
+*.csv
+*.tsv
+*.json
 __pycache__/
 
 # Devenv
